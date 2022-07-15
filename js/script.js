@@ -1,8 +1,8 @@
 const axios = require("axios")
-
+require('dotenv').config({path:__dirname+'/./../.env'})
 
 const req_data = {
-    "api_key": "z2FzoyGx4LCYPSz9g5iscw",
+    "api_key": process.env.APOLLO_API_KEY,
     "details": [
         {
             "first_name": "Marcel",
