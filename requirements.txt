@@ -1,2 +1,6 @@
+//pip3 install ...
+
 requests
 python-dotenv
+pandas
+openpyxl
