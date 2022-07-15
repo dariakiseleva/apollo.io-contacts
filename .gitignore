@@ -1,2 +1,4 @@
 .env
 planning.md
+/data/input/*
+/data/output/*
