@@ -1,11 +1,20 @@
 
 #import statements
-import requests, json
+import os, requests, json
+from dotenv import load_dotenv
+from os.path import join, dirname
+from dotenv import load_dotenv
+
+dotenv_path = join(dirname(__file__), '.env')
+load_dotenv(dotenv_path)
+
+APOLLO_API_KEY = os.environ.get("APOLLO_API_KEY")
 
 url = "https://api.apollo.io/api/v1/people/bulk_match"
 
+#----Sample data
 data = {
-    "api_key": "z2FzoyGx4LCYPSz9g5iscw",
+    "api_key": APOLLO_API_KEY,
     "details": [
         {
             "first_name": "Tim",
@@ -30,7 +39,9 @@ headers = {
 
 response = requests.request("POST", url, headers=headers, json=data)
 
+
+# Dump output for testing
 with open("output.json", 'w+') as outfile:
     json.dump(response.json(), outfile)
 
-print(response.text)
+#print(response.text)
